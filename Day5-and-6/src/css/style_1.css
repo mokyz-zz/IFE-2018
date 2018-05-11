@@ -1,0 +1,12 @@
+/* 属性书写顺序 布局 -> Box -> 文本 -> 视觉*/
+
+
+html {
+    font-family: sans-serif;
+}
+
+.basic-info p, 
+.contact-info p {
+    display: inline;
+    margin-right: 30px;
+}

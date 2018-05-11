@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+header {
+    background-color: rgb(133, 133, 133);
+    color: white;
+}
+
+h1 {
+    margin-left: 20px;
+    font-size: 1.2rem;
+    line-height: 3;
+}
+
+section div {
+    height: 150px;
+    border-bottom: 2px solid rgb(214, 214, 214);
+}
+
+section div h2 {
+    float: left;
+    margin: 0;
+    width: 100px;
+    line-height: 148px;
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: 2px solid white;
+    background-color: rgb(214, 214, 214);
+}
+
+section div p {
+    margin-left: 120px;
+    padding-top: 20px;
+}
+
+.p-inline p {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 30px;
+}
+
+.p-inline p:first-of-type {    
+    margin-left: 20px;
+}
+
+.p-inline {
+    height: 100px;
+}
+
+.p-inline h2 {
+    line-height: 98px;
+}

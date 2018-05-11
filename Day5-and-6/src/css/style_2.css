@@ -1,0 +1,49 @@
+/* 属性书写顺序 布局 -> Box -> 文本 -> 视觉*/
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+body {
+    width: 800px;
+    margin: 10px auto;
+}
+
+.content {
+    background-color: rgb(118, 164, 244);
+}
+
+header {
+    float: left;
+    width: 200px;
+}
+
+h1 {
+    margin-top: 100px;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+section {
+    padding-top: 20px;
+    margin-left: 200px;
+    padding-left: 50px;
+    height: 100%;
+    background-color: #FFF;
+}
+
+.basic-info p, 
+.contact-info p {
+    display: inline;
+    margin-right: 30px;
+}
+
