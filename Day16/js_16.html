@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+        p {
+            position: absolute;
+            box-shadow: 1px 1px 2px #00f;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+        var first_number = document.getElementById('first-number');
+        var second_number = document.getElementById('second-number');
+        var result = document.getElementById('result');
+
+        var add_btn = document.getElementById('add-btn');
+        var minus_btn = document.getElementById('minus-btn');
+        var times_btn = document.getElementById('times-btn');
+        var divide_btn = document.getElementById('divide-btn');
+
+        function add() {
+            var result_number = parseFloat(first_number.value) + parseFloat(second_number.value);
+            result.innerHTML = '运算结果：' + result_number;
+        }
+
+        function minus() {
+            var result_number = parseFloat(first_number.value) - parseFloat(second_number.value);
+            result.innerHTML = '运算结果：' + result_number;
+        }
+
+        function times() {
+            var result_number = parseFloat(first_number.value) * parseFloat(second_number.value);
+            result.innerHTML = '运算结果：' + result_number;
+        }
+
+        function divide() {
+            var result_number = parseFloat(first_number.value) / parseFloat(second_number.value);
+            result.innerHTML = '运算结果：' + result_number;
+        }
+
+
+        add_btn.addEventListener('click', add);
+        minus_btn.addEventListener('click', minus);
+        times_btn.addEventListener('click', times);
+        divide_btn.addEventListener('click', divide);
+    </script>
+</body>
+</html>
