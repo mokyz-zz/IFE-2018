@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>IFE ECMAScript</title>
+  <style>
+    #sprite-obj {
+      margin: 0 auto;
+      width: 400px;
+      height: 400px;
+      background-image: url(http://ife.baidu.com/2016/static/img/erik_ce204002.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="sprite-obj"></div>
+
+  <script>
+    var sprite_obj = document.getElementById("sprite-obj");
+
+    var positionY = 0;
+    var flag = null;
+
+    function animate1() {
+      flag = setInterval(() => {
+        if (positionY == -(400 * 16)) {
+          clearInterval(flag);
+          animate2();
+        } else {
+          positionY -= 400;
+          sprite_obj.style.backgroundPosition = "0 " + positionY + "px";
+        }
+      }, 100);
+    }
+
+    function animate2() {
+      flag = setInterval(() => {
+        if (positionY == 0) {
+          clearInterval(flag);
+          animate1();
+        } else {
+          positionY += 400;
+          sprite_obj.style.backgroundPosition = "0 " + positionY + "px";
+        }
+      }, 100);
+    }
+
+    animate1();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Page Title</title>
+</head>
+
+<body>
+
+  <input id="name" type="text">
+  <button id="submit-btn">Submit</button>
+
+  <script>
+    var input = document.querySelector("#name");
+    var submit_btn = document.querySelector("#submit-btn");
+
+    submit_btn.onclick = function() {
+      console.log(input.value);
+    };
+    window.onkeypress = function(ev) {
+      var keyChar = String.fromCharCode(ev.keyCode);
+      if (!/\d/.test(keyChar)) {
+        console.log(input.value);
+      }
+
+      if (ev.keyCode === 27) {
+        input.value = "";
+      }
+    }
+
+  </script>
+</body>
+
+</html>
