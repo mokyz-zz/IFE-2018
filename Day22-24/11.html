@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>IFE ECMAScript</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <pre><code>var menuArr = [
+                [<span class="hljs-number">1</span>, <span class="hljs-string">"Area1"</span>, <span class="hljs-number">-1</span>],
+                [<span class="hljs-number">2</span>, <span class="hljs-string">"Area2"</span>, <span class="hljs-number">-1</span>],
+                [<span class="hljs-number">3</span>, <span class="hljs-string">"Area1-1"</span>, <span class="hljs-number">1</span>],
+                [<span class="hljs-number">4</span>, <span class="hljs-string">"Area1-2"</span>, <span class="hljs-number">1</span>],
+                [<span class="hljs-number">5</span>, <span class="hljs-string">"Area2-1"</span>, <span class="hljs-number">2</span>],
+                [<span class="hljs-number">6</span>, <span class="hljs-string">"Area2-2"</span>, <span class="hljs-number">2</span>],
+                [<span class="hljs-number">7</span>, <span class="hljs-string">"Area1-2-3"</span>, <span class="hljs-number">4</span>],
+                [<span class="hljs-number">8</span>, <span class="hljs-string">"Area2-2-1"</span>, <span class="hljs-number">6</span>],
+            ];
+            </code></pre>
+
+    <script>
+        var menuArr = [
+            [1, "Area1", -1],
+            [2, "Area2", -1],
+            [3, "Area1-1", 1],
+            [4, "Area1-2", 1],
+            [5, "Area2-1", 2],
+            [6, "Area2-2", 2],
+            [7, "Area1-2-3", 4],
+            [8, "Area2-2-1", 6],
+        ];
+
+        function objectFromArray(array) {
+            var object = {};
+
+            // 1. 对于每一个子对象(数组)，判断当前对象是否存在属性
+            //  1-1. 不存在，就把子对象作为一个属性添加到对象 next
+            //  1-2. 存在，对于每一个属性值对象，判断子对象name是否包含属性值对象name
+            //  1-2-1. 是，如果不存在subMenu属性，就创建subMenu属性对象，跳至步骤1
+            //  1-2-2. 否，就把子对象作为一个属性添加到对象 next
+
+            function addSubObjTo(object, array) {
+                // 1-1
+                var isAdded = false;
+                if (Object.keys(object).length > 0) { // 1.2
+                    Object.keys(object).forEach(key => {
+                        var subObj = object[key];
+                        var propertyName = array[0];
+                        var name = array[1];
+
+                        if (name.indexOf(subObj.name) != -1) { // 1-2-1
+                            if (!subObj.subMenu) {
+                                subObj.subMenu = {};
+                            }
+                            isAdded = true;
+                            addSubObjTo(subObj.subMenu, array);
+                        }
+                    });
+                }
+
+                if (Object.keys(object).length == 0 || !isAdded) {
+                    var propertyName = array[0];
+                    var name = array[1];
+                    object[propertyName] = {
+                        "name": name
+                    };
+                }
+            }
+
+            array.forEach(e => {
+                addSubObjTo(object, e);
+            });
+
+            return object;
+        }
+
+        var object = objectFromArray(menuArr);
+        console.log(object);
+    </script>
+</body>
+
+</html>
+
+
+<!-- var menuObject = {
+    "1": {
+        name: "Area1",
+        subMenu: {
+            "3": {
+                name: "Area1-1"
+            },
+            "4": {
+                name: "Area1-2",
+                subMenu: {
+                    "7": {
+                        name: "Area1-2-3"
+                    }
+                }
+            }
+        }
+    }
+
+    ……
+
+} -->

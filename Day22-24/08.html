@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <input id="stack-input" type="text">
+    <p id="stack-cont">栈内容：apple&lt;-pear</p>
+    <button id="push-btn" onclick="stack_push()">进栈</button>
+    <button id="pop-btn" onclick="stack_pop()">退栈</button>
+    <button id="font-btn" onclick="stack_first()">打印栈顶元素内容</button>
+    <button id="empty-btn" onclick="isEmpty()">判断栈是否为空</button>
+
+    <script>
+        var stack = ["apple", "pear"];
+
+        var input = document.getElementById("stack-input");
+        var cont = document.getElementById("stack-cont");
+
+        function update() {
+            cont.textContent = "栈内容：" + stack.join("<-");
+        }
+
+        function stack_push() {
+            if (input.value != null && input.value != "") {
+                stack.push(input.value);
+                update();
+            }
+        }
+
+        function stack_pop() {
+            if (stack.length) {
+                stack.pop();
+                update();
+            }
+        }
+
+        function stack_first() {
+            alert("栈顶元素内容为：" + stack[stack.length - 1]);
+        }
+
+        function isEmpty() {
+            if (!stack.length) {
+                alert("栈为空!");
+            } else {
+                alert("栈不为空!");
+            }
+        }
+    </script>
+</body>
+
+</html>

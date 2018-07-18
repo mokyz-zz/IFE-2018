@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <p>排序前：43, 54, 4, -4, 84, 100, 58, 27, 140</p>
+    <p class="" id="result1"></p>
+
+    <br>
+    <p>排序前：'apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'</p>
+    <p class="" id="result2"></p>
+    <p class="" id="result2-1"></p>
+
+    <br>
+    <p>排序前：[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]</p>
+    <p class="" id="result3"></p>
+
+    <script>
+        var arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+        var result1 = document.getElementById("result1");
+        result1.textContent = "从大到小：" + arr1.sort((a, b) => parseInt(b) - parseInt(a)).join(", ");
+
+        var arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+        var result2 = document.getElementById("result2");
+        var result2_1 = document.getElementById("result2-1");
+        result2.textContent = "a-z：" + arr2.sort().join(", ");
+        result2_1.textContent = "z-a：" + arr2.sort((a, b) => a < b).join(", ");
+
+        var arr3 = [
+            [10, 14],
+            [16, 60],
+            [7, 44],
+            [26, 35],
+            [22, 63]
+        ];
+        var result3 = document.getElementById("result3");
+        result3.textContent = "第二个数从大到小：[" + arr3.sort((a, b) => b[1] - a[1]).join("], [") + "]";
+
+        var arr4 = [{
+            id: 1,
+            name: 'candy',
+            value: 40
+        }, {
+            id: 2,
+            name: 'Simon',
+            value: 50
+        }, {
+            id: 3,
+            name: 'Tony',
+            value: 45
+        }, {
+            id: 4,
+            name: 'Annie',
+            value: 60
+        }];
+
+        arr4.sort((a, b) => a.value - b.value);
+        console.log(arr4);
+    </script>
+</body>
+
+</html>

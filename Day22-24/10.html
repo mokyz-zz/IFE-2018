@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>IFE ECMAScript</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <pre>
+        <p>有如下对象：</p>
+        <code>
+            var scoreObject = {
+            <span class="hljs-string">"Tony"</span>: {
+                <span class="hljs-string">"Math"</span>: <span class="hljs-number">95</span>,
+                <span class="hljs-string">"English"</span>: <span class="hljs-number">79</span>,
+                <span class="hljs-string">"Music"</span>: <span class="hljs-number">68</span>
+            },
+            <span class="hljs-string">"Simon"</span>: {
+                <span class="hljs-string">"Math"</span>: <span class="hljs-number">100</span>,
+                <span class="hljs-string">"English"</span>: <span class="hljs-number">95</span>,
+                <span class="hljs-string">"Music"</span>: <span class="hljs-number">98</span>
+            },
+            <span class="hljs-string">"Annie"</span>: {
+                <span class="hljs-string">"Math"</span>: <span class="hljs-number">54</span>,
+                <span class="hljs-string">"English"</span>: <span class="hljs-number">65</span>,
+                <span class="hljs-string">"Music"</span>: <span class="hljs-number">88</span>
+            }
+            }
+        </code>
+    </pre>
+
+    <pre>
+        <p>对象转换为数组的结果：</p>
+        <code>
+                var scoreArray = [
+                <span class="result"></span>
+                ];
+        </code>
+    </pre>
+
+    <script>
+        var scoreObject = {
+            "Tony": {
+                "Math": 95,
+                "English": 79,
+                "Music": 68
+            },
+            "Simon": {
+                "Math": 100,
+                "English": 95,
+                "Music": 98
+            },
+            "Annie": {
+                "Math": 54,
+                "English": 65,
+                "Music": 88
+            }
+        }
+
+        function arrayFromObject(obj) {
+            var scoreArray = [];
+            Object.keys(obj).forEach((name) => {
+                var array = [];
+                array.push(name);
+                var valueObj = obj[name];
+                Object.keys(valueObj).forEach((course) => {
+                    var score = valueObj[course];
+                    array.push(score);
+                });
+                scoreArray.push(array);
+            });
+
+            return scoreArray;
+        }
+
+        var scoreArray = arrayFromObject(scoreObject);
+        var result = document.querySelector(".result");
+        result.innerHTML = scoreArray;
+        console.log(scoreArray);
+    </script>
+</body>
+
+</html>
